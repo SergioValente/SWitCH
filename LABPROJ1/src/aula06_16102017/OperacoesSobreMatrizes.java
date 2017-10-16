@@ -22,8 +22,22 @@ public class OperacoesSobreMatrizes {
 			
 			for (int j = i + 1; j < a.length; j++) { // j = i + 1 para percorrer só a parte de cima da matriz!!!!
 				
-				if(i == j) continue;
 				if(a[i][j] != a[j][i]) return false;
+			}
+		}	
+		return true;
+	}
+	
+public static boolean isSimetricaDiagonalSecundaria(int[][] a) {
+		
+		if (a.length != a[0].length) return false;
+		
+		for (int i = 0; i < a.length; i++) {
+			
+			for (int j = 0; j < a.length; j++) {
+				
+				if (i == a.length - 1 - j) continue;
+				if(a[i][j] != a[a.length - 1 - j][a.length - 1 - i]) return false;
 			}
 		}	
 		return true;

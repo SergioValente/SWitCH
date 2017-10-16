@@ -93,4 +93,44 @@ public class OperacoesSobreMatrizesTest {
 		
 		assertFalse(result);
 	}
+	
+	@Test
+	public void testIsSimetricaDiagonalSecundariaTrue() {
+		
+		int[][] a = new int[][] {{1,2,3,4}, {6,5,8,3}, {9,7,5,2}, {4,9,6,1}};
+		
+		boolean result = OperacoesSobreMatrizes.isSimetricaDiagonalSecundaria(a);
+		
+		assertTrue(result);
+	}
+	
+	@Test
+	public void testIsSimetricaDiagonalSecundariaFalse() {
+		
+		int[][] a = new int[][] {{1,2,3,4}, {2,5,8,3}, {9,7,5,2}, {4,9,6,1}};
+		
+		boolean result = OperacoesSobreMatrizes.isSimetricaDiagonalSecundaria(a);
+		
+		assertFalse(result);
+	}
+	
+	@Test
+	public void testIsSimetricaDiagonalSecundariaNotSquareMatrix() {
+		
+		int[][] a = new int[][] {{1,2,3}, {4,8,2}};
+		
+		boolean result = OperacoesSobreMatrizes.isSimetricaDiagonalSecundaria(a);
+		
+		assertFalse(result);
+	}
+	
+	@Test
+	public void testIsSimetricaDiagonalSecundariaEmpty() {
+		
+		int[][] a = new int[][] {{}, {}, {}, {}};
+		
+		boolean result = OperacoesSobreMatrizes.isSimetricaDiagonalSecundaria(a);
+		
+		assertFalse(result);
+	}
 }
