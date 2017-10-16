@@ -28,7 +28,7 @@ public class OperacoesSobreMatrizes {
 		return true;
 	}
 	
-public static boolean isSimetricaDiagonalSecundaria(int[][] a) {
+	public static boolean isSimetricaDiagonalSecundaria(int[][] a) {
 		
 		if (a.length != a[0].length) return false;
 		
@@ -40,5 +40,17 @@ public static boolean isSimetricaDiagonalSecundaria(int[][] a) {
 			}
 		}	
 		return true;
+	}
+	
+	public static int[][] matrizTransposta(int[][] a) {
+		
+		int[][] transposed = new int[a[0].length][a.length];
+		
+		for (int i = 0; i < a.length; i++) {
+			for (int j = 0; j < a[0].length; j++) {
+				transposed[j][i] = a[i][j];
+			}
+		}
+		return transposed;
 	}
 }

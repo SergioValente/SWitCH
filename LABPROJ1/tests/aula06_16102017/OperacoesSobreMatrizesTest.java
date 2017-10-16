@@ -133,4 +133,40 @@ public class OperacoesSobreMatrizesTest {
 		
 		assertFalse(result);
 	}
+	
+	@Test
+	public void testMatrizTranspostaNormal() {
+		
+		int[][] a = new int[][] {{1,2,3}, {3,4,6}};
+		int[][] expResult = {{1,3}, {2,4}, {3,6}}; 
+		int[][] result = OperacoesSobreMatrizes.matrizTransposta(a);
+		
+		for (int i = 0; i < result.length; i++) {
+			assertArrayEquals(expResult[i], result[i]);
+		}
+	}
+	
+	@Test
+	public void testMatrizTranspostaEmpty() {
+		
+		int[][] a = new int[][] {{}, {}};
+		int[][] expResult = {{}, {}}; 
+		int[][] result = OperacoesSobreMatrizes.matrizTransposta(a);
+		
+		for (int i = 0; i < result.length; i++) {
+			assertArrayEquals(expResult[i], result[i]);
+		}
+	}
+	
+	@Test
+	public void testMatrizTranspostaVectorTwoElements() {
+		
+		int[][] a = new int[][] {{1,2}};
+		int[][] expResult = {{1}, {2}}; 
+		int[][] result = OperacoesSobreMatrizes.matrizTransposta(a);
+		
+		for (int i = 0; i < result.length; i++) {
+			assertArrayEquals(expResult[i], result[i]);
+		}
+	}
 }
