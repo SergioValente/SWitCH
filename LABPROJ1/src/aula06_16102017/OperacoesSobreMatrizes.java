@@ -32,11 +32,10 @@ public static boolean isSimetricaDiagonalSecundaria(int[][] a) {
 		
 		if (a.length != a[0].length) return false;
 		
-		for (int i = 0; i < a.length; i++) {
+		for (int i = 0; i < a.length - 1; i++) {
 			
-			for (int j = 0; j < a.length; j++) {
+			for (int j = 0; j < a.length - 1 - i; j++) { // j < a.length - 1 - i para só percorrer a parte de cima!!!
 				
-				if (i == a.length - 1 - j) continue;
 				if(a[i][j] != a[a.length - 1 - j][a.length - 1 - i]) return false;
 			}
 		}	
