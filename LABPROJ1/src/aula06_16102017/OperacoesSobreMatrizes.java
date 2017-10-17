@@ -7,7 +7,7 @@ public class OperacoesSobreMatrizes {
 		if ((a.length != b.length) || (a[0].length != b[0].length)) return false;
 		
 		for (int i = 0; i < a.length; i++) {
-			for (int j = 0; j < a[0].length; j++) {
+			for (int j = 0; j < a[i].length; j++) {
 				if (a[i][j] != b[i][j]) return false; 
 			}
 		}
@@ -47,7 +47,7 @@ public class OperacoesSobreMatrizes {
 		int[][] transposed = new int[a[0].length][a.length];
 		
 		for (int i = 0; i < a.length; i++) {
-			for (int j = 0; j < a[0].length; j++) {
+			for (int j = 0; j < a[i].length; j++) {
 				transposed[j][i] = a[i][j];
 			}
 		}
