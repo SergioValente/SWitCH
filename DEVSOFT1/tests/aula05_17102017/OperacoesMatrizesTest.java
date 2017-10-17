@@ -129,4 +129,25 @@ public class OperacoesMatrizesTest {
 		
 		assertFalse(result);
 	}
+	
+	@Test
+	public void testIsValidSudokuSolutionEmpty() {
+		
+		int[][] a = {{}, {}};
+		boolean result = OperacoesMatrizes.isValidSudokuSolution(a);
+		
+		assertFalse(result);
+	}
+	
+	//Testes para verificar o método auxiliar da solução do Sudoku
+	@Test
+	public void testInnerMatrizToVectorNormal() {
+		
+		int[][] a =  {{1,2,3},{4,5,6},{7,8,9}};
+		int[] expResult = {1,2,3,4,5,6,7,8,9};
+		int[] result = OperacoesMatrizes.innerMatrixToVector(a, 0, 0);
+		
+		assertArrayEquals(expResult, result);
+		
+	}
 }

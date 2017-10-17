@@ -14,3 +14,6 @@ bin/
 *.classpath
 *.project
 .settings/
+
+# exclude until done
+/SCOMRED/src/aula03_17102017

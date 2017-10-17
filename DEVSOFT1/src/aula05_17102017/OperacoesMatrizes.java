@@ -43,6 +43,7 @@ public class OperacoesMatrizes {
 		
 		return true;
 	}
+	
 	/**
 	 * Método para calcular se uma dada solução do Sudoku é válida
 	 * @param a matriz com a solução
@@ -72,6 +73,7 @@ public class OperacoesMatrizes {
 		}
 		return true;	
 	}
+	
 	/**
 	 * Método para pegar numa matriz interna do jogo Sudoku e passar para um vetor	
 	 * @param a matriz completa
