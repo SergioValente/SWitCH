@@ -53,4 +53,9 @@ public class OperacoesSobreMatrizes {
 		}
 		return transposed;
 	}
+	
+	public static boolean isSimetricaUsandoTransposta(int[][] a) {
+		
+		return isEqualMatrices(a, matrizTransposta(a));
+	}
 }

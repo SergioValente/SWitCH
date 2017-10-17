@@ -169,4 +169,46 @@ public class OperacoesSobreMatrizesTest {
 			assertArrayEquals(expResult[i], result[i]);
 		}
 	}
+	
+	//Testes para verificar matriz simétrica usando o método da matriz transposta
+		@Test
+		public void testisSimetricaUsandoTranspostaTrue() {
+			
+			int a[][] = {{1,2,3}, {2,4,6}, {3,6,5}};
+			
+			boolean result = OperacoesSobreMatrizes.isSimetricaUsandoTransposta(a);
+			
+			assertTrue(result);
+		}
+		
+		@Test
+		public void testisSimetricaUsandoTranspostaFalse() {
+			
+			int a[][] = {{1,2,3}, {10,5,6}, {2,3,4}};
+			
+			boolean result = OperacoesSobreMatrizes.isSimetricaUsandoTransposta(a);
+			
+			assertFalse(result);
+		}
+		
+		@Test
+		public void testisSimetricaUsandoTranspostaEmpty() {
+			
+			int a[][] = {{}, {}};
+			
+			boolean result = OperacoesSobreMatrizes.isSimetricaUsandoTransposta(a);
+			
+			assertFalse(result);
+		}
+		
+		@Test
+		public void testisSimetricaUsandoTranspostaDifferentDimensions() {
+			
+			int a[][] = {{1,2}, {1,2},{2,4}};
+			
+			boolean result = OperacoesSobreMatrizes.isSimetricaUsandoTransposta(a);
+			
+			assertFalse(result);
+		}
+
 }

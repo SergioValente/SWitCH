@@ -1,0 +1,16 @@
+# exclude .DS_Store
+#
+.DS_Store
+#
+#
+# exclude .metadata and RemoteSystemsTempFiles
+#
+.metadata/
+RemoteSystemsTempFiles/
+#
+# exclude .settings and bin directory inside all projects as well as files .classpath #and .project
+#
+bin/
+*.classpath
+*.project
+.settings/
