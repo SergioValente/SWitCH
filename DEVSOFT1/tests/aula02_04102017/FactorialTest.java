@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import aula02_04102017.Factorial;
 
-public class TesteFactorial {
+public class FactorialTest {
 
 	@Test
 	public void testFactorial() {

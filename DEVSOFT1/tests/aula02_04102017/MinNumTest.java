@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import aula02_04102017.MinNum;
 
-public class TesteMinNum {
+public class MinNumTest {
 
 	@Test
 	public void testMin() {

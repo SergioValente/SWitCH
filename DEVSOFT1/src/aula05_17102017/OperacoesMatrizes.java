@@ -58,6 +58,7 @@ public class OperacoesMatrizes {
 		// Verificação dos duplicados nas linhas e nas colunas
 		for (int i = 0; i < a.length; i ++) {
 	
+			
 			if(a[i].length != a.length) return false;
 			
 			duplicadosLinha = OperacoesSobreUmVetor.hasDuplicates(a[i]);
