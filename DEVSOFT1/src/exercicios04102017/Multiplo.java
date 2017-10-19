@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 /**
  * Exercícios propostos por Prof. Ângelo Martins no Yammer a 4/10/2017.<br><br>
- * I. Sabendo que o operador % do Java dá o resto da divisão entre dois inteiros pretende-se que elabore um programa que:
+ * I. Sabendo que o operador % do Java dá o resto da divisão entre dois inteiros<br>
+ *    pretende-se que elabore um programa que:<br>
 	<br>a)	liste todos os múltiplos de 3 num intervalo dado
 	<br>b)	liste todos os múltiplos de um dado número inteiro num intervalo dado
 	<br>c)	liste todos os múltiplos de 3 e 5 num intervalo dado
@@ -153,6 +154,7 @@ public static void main(String[] args) {
 		
 		int num = 0; //mock value
 		
+		@SuppressWarnings("resource")
 		Scanner inputNumber = new Scanner(System.in);
 		
 		while (num == 0) {

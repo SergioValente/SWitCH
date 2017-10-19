@@ -28,7 +28,7 @@ public class FuncoesTest {
 			result = Funcoes.factorial(1);
 			assertEquals(1, result);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}	
 	}
@@ -41,7 +41,7 @@ public class FuncoesTest {
 			result = Funcoes.factorial(2);
 			assertEquals(2, result);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}	
 	}
@@ -54,7 +54,7 @@ public class FuncoesTest {
 			result = Funcoes.factorial(5);
 			assertEquals(120, result);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}	
 	}

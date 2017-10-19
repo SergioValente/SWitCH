@@ -12,6 +12,7 @@ public class NumeroPerfeito {
 
 	public static void calcularNumPerfeito() {
 		
+		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
 		
 		int numeroAux, soma = 0;

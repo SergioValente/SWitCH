@@ -12,8 +12,8 @@ import java.util.ArrayList;
 public class OperacoesMultiplosTest {
 	
 	private int[] a = {};
-	private int[] b;
-	private int[] c;
+	//private int[] b;
+	//private int[] c;
 	private int[] d;
 	ArrayList<Integer> expResult = new ArrayList<>();
 	ArrayList<Integer> result = new ArrayList<>();
@@ -21,8 +21,8 @@ public class OperacoesMultiplosTest {
 	@Before
 	public final void create() {
 		
-		b = new int[] {};
-		c = new int[4];
+		//b = new int[] {};
+		//c = new int[4];
 		d = new int[] {1,2,3,4,5,6,7,8,9,10};
 	}
 	

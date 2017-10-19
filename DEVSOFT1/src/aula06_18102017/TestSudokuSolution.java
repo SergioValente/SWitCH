@@ -25,10 +25,12 @@ public class TestSudokuSolution {
 	 * @param jogo matriz a verificar
 	 * @return true se é matriz de nove por nove ou false se matriz não é de nove por nove
 	 */
-	private static boolean isMatrizNovePorNove(int[][] jogo) {
+	public static boolean isMatrizNovePorNove(int[][] jogo) {
 		
-		if(jogo.length != 9 || jogo[0].length != 9) return false;
-		
+		if(jogo.length != 9) return false;
+		for (int i = 0; i < jogo.length; i++) {
+			if(jogo[i].length != 9) return false;
+		}
 		return true;
 	}
 	
@@ -37,7 +39,7 @@ public class TestSudokuSolution {
 	 * @param jogo matriz a verificar
 	 * @return true se todos os números são válidos, false se pelo menos um está fora do intervalo 
 	 */
-	private static boolean matrizTemNumerosTodosValidos(int[][] jogo) {
+	public static boolean matrizTemNumerosTodosValidos(int[][] jogo) {
 		
 		for(int i = 0; i < jogo.length; i++) {
 			for(int j = 0; j < jogo[i].length; j++) {
@@ -52,7 +54,7 @@ public class TestSudokuSolution {
 	 * @param jogo matriz do jogo
 	 * @return true se todas as linhas estão corretas, false se pelo menos uma delas falha
 	 */
-	private static boolean linhasCorretas(int[][] jogo) {
+	public static boolean linhasCorretas(int[][] jogo) {
 		
 		boolean temDuplicados = false;
 		
@@ -72,7 +74,7 @@ public class TestSudokuSolution {
 	 * @param jogo matriz do jogo
 	 * @return true se todas as colunas estão corretas, false se pelo menos uma delas falha
 	 */
-	private static boolean colunasCorretas(int[][] jogo) {
+	public static boolean colunasCorretas(int[][] jogo) {
 		
 		int[][] transposta = OperacoesSobreMatrizes.matrizTransposta(jogo);
 		
@@ -96,7 +98,7 @@ public class TestSudokuSolution {
 	 * @param y índice da coluna
 	 * @return matriz interna na forma de um vetor
 	 */
-	private static int[] converteMatrizInternaParaVetor(int[][] jogo, int x, int y) {
+	public static int[] converteMatrizInternaParaVetor(int[][] jogo, int x, int y) {
 	
 		int indexVector = 0;
 		int[] matrixToVector = new int[9];
@@ -114,7 +116,7 @@ public class TestSudokuSolution {
 	 * @param jogo matriz para converter
 	 * @return matriz 9x9 "desembrulhada"
 	 */
-	private static int[][] unwindMatriz(int[][] jogo) {
+	public static int[][] unwindMatriz(int[][] jogo) {
 		
 		int[][] matrizDesembrulhada = new int[9][9]; 
 		int indice = 0;
