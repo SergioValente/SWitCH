@@ -189,6 +189,7 @@ public class TestSudokuSolutionTest {
 		int[] expResult = {8,6,2,7,4,9,5,1,3};
 		int[] result = TestSudokuSolution.converteMatrizInternaParaVetor(a, i, j);
 	
-		assertThat(expResult, not(equalTo(result)));
+		assertThat(expResult, not(equalTo(result))); //Temos que usar esta forma do hamcrest.
+		//assertNotEquals(expResult, result); //NÃO FUNCIONA!!
 	}
 }
