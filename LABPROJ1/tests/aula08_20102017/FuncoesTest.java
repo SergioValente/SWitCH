@@ -46,7 +46,7 @@ public class FuncoesTest {
 	}
 	
 	@Test
-	public  void testDivideNumberIntoDigitsZero() {
+	public  void testDivideNumberIntoDigitsArrayValueZero() {
 		
 		int num = 0;
 		int[] expResult = {0};
@@ -67,7 +67,7 @@ public class FuncoesTest {
 	}
 	
 	@Test
-	public  void testSumOfDigitsOneDigit() {
+	public  void testSumOfDigitsNumberHasOneDigit() {
 	
 		int[] array = {9};
 		int expResult = 9;
@@ -78,7 +78,7 @@ public class FuncoesTest {
 
 	//Tests to verify if matrix is square
 	@Test
-	public  void testIsSquareMatrixNormal() {
+	public  void testIsSquareMatrixTrue() {
 		
 		int [][] a = {{8,6,2,7,9,5,3,4,1}, 
 			  	     {7,4,9,6,3,1,5,2,8},
@@ -137,35 +137,35 @@ public class FuncoesTest {
 		assertFalse(result);
 	}
 	
-	//Tests to verify is matrix is triangular superior
+	//Tests to verify is matrix is lower triangular
 
 	@Test
-	public  void testIsSuperiorTriangularMatrixTrue() {
+	public void testIslowerTriangularMatrixTrue() {
 
-		int[][] matrix = {{1,0,0}, {1,2,0},{1,2,3}};
-		boolean result = Funcoes.isSuperiorTriangularMatrix(matrix);
-		
+		int[][] matrix = { { 1, 0, 0 }, { 1, 2, 0 }, { 1, 2, 3 } };
+		boolean result = Funcoes.islowerTriangularMatrix(matrix);
+
 		assertTrue(result);
 	}
-	
+
 	@Test
-	public  void testIsSuperiorTriangularMatrixFalse() {
-		
-		int[][] matrix = {{1,2,0}, {1,2,0},{1,2,3}};
-		boolean result = Funcoes.isSuperiorTriangularMatrix(matrix);
-		
+	public void testIslowerTriangularMatrixFalse() {
+
+		int[][] matrix = { { 1, 2, 0 }, { 1, 2, 0 }, { 1, 2, 3 } };
+		boolean result = Funcoes.islowerTriangularMatrix(matrix);
+
 		assertFalse(result);
 	}
-	
+
 	@Test
-	public  void testIsSuperiorTriangularMatrixAllZeros() {
-		
-		int[][] matrix = {{0,0,0}, {0,0,0},{0,0,0}};
-		boolean result = Funcoes.isSuperiorTriangularMatrix(matrix);
-		
+	public void testIslowerTriangularMatrixAllZeros() {
+
+		int[][] matrix = { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
+		boolean result = Funcoes.islowerTriangularMatrix(matrix);
+
 		assertTrue(result);
 	}
-	
+
 	//Tests to verify normalized array
 
 	@Test
@@ -178,9 +178,8 @@ public class FuncoesTest {
 		expResult[2] = 1;
 		double[] result = Funcoes.normalizeVector(testVector);
 		
-		//assertArrayEquals(expResult, result);
+		//assertArrayEquals(expResult, result, 0.0001); TAMBÉM FUNCIONA!!
 		assertThat(expResult, equalTo(result));
-		//assertTrue(Arrays.equals(expResult, result));
 	}
 
 	@Test
