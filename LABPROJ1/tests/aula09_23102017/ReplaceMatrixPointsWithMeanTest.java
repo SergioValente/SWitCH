@@ -92,7 +92,7 @@ public class ReplaceMatrixPointsWithMeanTest {
 	}
 
 	@Test
-	public  void testMeanOfAllNeighbourPointsExceptCenter() throws Exception {
+	public  void testMeanOfAllNeighbourPointsExceptCenter() {
 	
 		int[][] testMatrix = {{2,5,3,4},{2,7,1,0},{0,2,5,10},{0,0,1,2}};
 		int i = 2;
