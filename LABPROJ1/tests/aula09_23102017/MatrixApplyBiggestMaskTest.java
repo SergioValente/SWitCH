@@ -11,10 +11,10 @@ public class MatrixApplyBiggestMaskTest {
 	public void testBiggestMaskSizeNormalResult() {
 		int numLines = 10;
 		int numColumns = 10;
-		int maxMaskSize = 25;
-		int indexLine = 1;
+		int maxMaskSize = 12;
+		int indexLine = 3;
 		int indexColumn = 5;
-		int expResult = 3;
+		int expResult = 7;
 		int result = MatrixApplyBiggestMask.biggestMaskSize(numLines, numColumns, 
 				maxMaskSize, indexLine, indexColumn);
 		
@@ -64,6 +64,28 @@ public class MatrixApplyBiggestMaskTest {
 							 {98,19,15,17,10},
 							 {0,9,38,65,23}};
 		int[][] result = MatrixApplyBiggestMask.applyMask(testMatrix, userMaskSize); 
-		assertThat(expResult, equalTo(result));
+		
+		assertThat(expResult, equalTo(result));	
+	}
+	
+	@Test
+	public  void testApplyMaskIncorrectMaskValue() {
+		
+		int userMaskSize = -7;
+		int[][] testMatrix = {{1,2,3,7,3},
+				              {23,0,0,4,6},
+				              {2,78,255,2,0},
+				              {6,4,3,2,1},
+				              {98,4,5,7,10},
+				              {0,9,38,65,23}};
+		int[][] expResult = {{1,2,3,7,3},
+			                 {23,0,0,4,6},
+			                 {2,78,255,2,0},
+			                 {6,4,3,2,1},
+			                 {98,4,5,7,10},
+			                 {0,9,38,65,23}};
+		int[][] result = MatrixApplyBiggestMask.applyMask(testMatrix, userMaskSize); 
+		
+		assertThat(expResult, equalTo(result));	
 	}
 }

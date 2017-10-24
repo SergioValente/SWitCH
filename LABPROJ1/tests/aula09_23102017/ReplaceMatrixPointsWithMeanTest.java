@@ -69,6 +69,18 @@ public class ReplaceMatrixPointsWithMeanTest {
 		assertThat(expResult, equalTo(result));
 	}
 
+	//Tests to FillBorderlineValues
+	@Test
+	public  void testFillBorderlineValuesValidResult() {
+	
+		int[][] testMatrix = {{2,5,3,4},{2,7,1,0},{0,2,5,10},{0,0,1,2}};
+		int[][] expResult = {{2,5,3,4},{2,0,0,0},{0,0,0,10},{0,0,1,2}};
+		int[][] result = ReplaceMatrixPointsWithMean.fillBorderlineValues(testMatrix);
+	
+		assertThat(expResult, equalTo(result));
+	}
+
+	//Tests to MeanOfAllNeighbourPointsExceptCenter
 	@Test
 	public  void testMeanOfAllNeighbourPointsValidResult() {
 	
@@ -80,25 +92,40 @@ public class ReplaceMatrixPointsWithMeanTest {
 	
 		assertThat(expResult, equalTo(result));
 	}
-
-	@Test
-	public  void testFillBorderlineValuesValidResult() {
 	
-		int[][] testMatrix = {{2,5,3,4},{2,7,1,0},{0,2,5,10},{0,0,1,2}};
-		int[][] expResult = {{2,5,3,4},{2,0,0,0},{0,0,0,10},{0,0,1,2}};
-		int[][] result = ReplaceMatrixPointsWithMean.fillBorderlineValues(testMatrix);
+	@Test
+	public  void testMeanOfAllNeighbourPointsMatrixAllZeros() {
+	
+		int[][] testMatrix = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
+		int i = 2;
+		int j = 2;
+		int expResult = 0;
+		int result = ReplaceMatrixPointsWithMean.meanOfAllNeighbourPoints(testMatrix, i, j);
 	
 		assertThat(expResult, equalTo(result));
 	}
 
+	//Tests to MeanOfAllNeighbourPointsExceptCenter
 	@Test
-	public  void testMeanOfAllNeighbourPointsExceptCenter() {
+	public  void testMeanOfAllNeighbourPointsExceptCenterValidResult() {
 	
 		int[][] testMatrix = {{2,5,3,4},{2,7,1,0},{0,2,5,10},{0,0,1,2}};
 		int i = 2;
 		int j = 2;
 		int expResult = 3;
-		int result = ReplaceMatrixPointsWithMean.meanOfAllNeighbourPoints(testMatrix, i, j);
+		int result = ReplaceMatrixPointsWithMean.meanOfAllNeighbourPointsExceptCenter(testMatrix, i, j);
+	
+		assertThat(expResult, equalTo(result));
+	}
+	
+	@Test
+	public  void testMeanOfAllNeighbourPointsExceptCenterMatrixAllZeros() {
+	
+		int[][] testMatrix = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
+		int i = 2;
+		int j = 2;
+		int expResult = 0;
+		int result = ReplaceMatrixPointsWithMean.meanOfAllNeighbourPointsExceptCenter(testMatrix, i, j);
 	
 		assertThat(expResult, equalTo(result));
 	}
