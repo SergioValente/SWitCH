@@ -15,5 +15,5 @@ bin/
 *.project
 .settings/
 
-# exclude until done
-/SCOMRED/src/aula03_17102017
+# exclude until done - removed exclusion 24/10/2017
+#/SCOMRED/src/aula03_17102017
