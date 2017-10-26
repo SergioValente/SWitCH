@@ -1,0 +1,2 @@
+Continuámos o trabalho nas classes ChessPieceMovement e 
+ChessPieceMovementTest, iniciadas na aula07_24102017.

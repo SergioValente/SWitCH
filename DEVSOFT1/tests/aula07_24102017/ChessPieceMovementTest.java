@@ -280,16 +280,16 @@ public class ChessPieceMovementTest {
 	@Test
 	public  void testCheckLeftToRightTrue() {
 		
-		char[][] board = {{'l','C','B','R','Q','B','C','T'},
+		char[][] board = {{'l','l','B','R','Q','B','C','T'},
 						{'P','P','P','P','P','P','P','P'},
-						{'T','l','l','l','l','l','l','l'},
+						{'T','l','C','l','l','l','l','l'},
 						{'l','l','l','l','l','l','l','l'},
 						{'l','l','l','l','l','l','l','l'},
 						{'l','l','l','l','l','l','l','l'},
 						{'p','p','p','p','p','p','p','p'},
 						{'t','c','b','q','r','b','c','t'}};
-		int[] inPosition = {3,2};
-		int[] finalPosition = {3,7};
+		int[] inPosition = {0,0};
+		int[] finalPosition = {0,1};
 		boolean result = ChessPieceMovement.checkLeftToRight(board, inPosition, finalPosition);
 
 		assertTrue(result);
@@ -326,7 +326,7 @@ public class ChessPieceMovementTest {
 				 		{'p','p','p','p','p','p','p','p'},
 				 		{'t','c','b','q','r','b','c','t'}};
 		int[] inPosition = {3,3};
-		int[] finalPosition = {3,1};
+		int[] finalPosition = {3,0};
 		boolean result = ChessPieceMovement.checkRightToLeft(board, inPosition, finalPosition);
 
 		assertTrue(result);
