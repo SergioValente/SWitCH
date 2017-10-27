@@ -441,4 +441,21 @@ public class ChessPieceMovement {
 		
 		return true;
 	}
+	
+	/**
+	 * Moves piece to the desired position.
+	 * @param board Matrix representing chess board.
+	 * @param inPos Initial Position.
+	 * @param finPos Piece's desired final position.
+	 * @return Chess board with movement executed.
+	 */
+	public static char[][] movePiece(char[][] board, int[] inPos, int[] finPos) {
+		
+			char pieceInInitialPosition = board[inPos[0]][inPos[1]];
+		
+			board[inPos[0]][inPos[1]] = 'l';
+			board[finPos[0]][finPos[1]] = pieceInInitialPosition;
+		
+			return board;
+	}
 }

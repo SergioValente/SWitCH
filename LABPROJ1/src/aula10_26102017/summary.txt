@@ -1,0 +1,2 @@
+Conclusão da classe ChessPieceMovement e jogo de equipa com quadrados 
+pintados.

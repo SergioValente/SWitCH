@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.*;
+
 import aula07_24102017.ChessPieceMovement.movement;
 
 public class ChessPieceMovementTest {
@@ -1240,5 +1242,55 @@ public class ChessPieceMovementTest {
 			int[] finPos = {5,2};
 			boolean result = ChessPieceMovement.blackPawnValidations(board, dirOfMov, inPos, finPos);
 			assertFalse(result);
+		}
+
+		@Test
+		public  void testMovePieceNormalResult() {
+		
+			char[][] board = {{'T','C','B','R','Q','B','C','T'},
+							  {'P','P','P','P','P','P','P','P'},
+							  {'l','l','l','l','l','l','l','l'},
+							  {'l','l','l','l','l','l','l','l'},
+							  {'l','l','l','l','l','l','l','l'},
+							  {'l','l','l','l','l','l','l','l'},
+							  {'p','p','p','p','p','p','p','p'},
+							  {'t','c','b','q','r','b','c','t'}};
+			int[] inPos = {1,1};
+			int[] finPos = {3,1};
+			char[][] expResult = {{'T','C','B','R','Q','B','C','T'},
+					  			  {'P','l','P','P','P','P','P','P'},
+					  			  {'l','l','l','l','l','l','l','l'},
+					  			  {'l','P','l','l','l','l','l','l'},
+					  			  {'l','l','l','l','l','l','l','l'},
+					  			  {'l','l','l','l','l','l','l','l'},
+					  			  {'p','p','p','p','p','p','p','p'},
+					  			  {'t','c','b','q','r','b','c','t'}};
+			char[][] result = ChessPieceMovement.movePiece(board, inPos, finPos);
+			assertThat (expResult, equalTo(result));
+		}
+		
+		@Test
+		public  void testMovePieceAbnormalResult() {
+		
+			char[][] board = {{'T','C','B','R','Q','B','C','T'},
+							  {'P','P','P','P','P','P','P','P'},
+							  {'l','l','l','l','l','l','l','l'},
+							  {'l','l','l','l','l','l','l','l'},
+							  {'l','l','l','l','l','l','l','l'},
+							  {'l','l','l','l','l','l','l','l'},
+							  {'p','p','p','p','p','p','p','p'},
+							  {'t','c','b','q','r','b','c','t'}};
+			int[] inPos = {1,1};
+			int[] finPos = {3,1};
+			char[][] expResult = {{'T','C','B','R','Q','B','C','T'},
+					  			  {'P','P','P','P','P','P','P','P'},
+					  			  {'l','l','l','l','l','l','l','l'},
+					  			  {'l','l','l','l','l','l','l','l'},
+					  			  {'l','l','l','l','l','l','l','l'},
+					  			  {'l','l','l','l','l','l','l','l'},
+					  			  {'p','p','p','p','p','p','p','p'},
+					  			  {'t','c','b','q','r','b','c','t'}};
+			char[][] result = ChessPieceMovement.movePiece(board, inPos, finPos);
+			assertThat (expResult, not(equalTo(result)));
 		}
 }
