@@ -9,6 +9,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import aula02_06102017.Fibonacci;
@@ -43,7 +44,7 @@ public class FibonacciTest {
     /**
      * Test of main method, of class Fibonacci.
      */
-    @Test
+    @Test @Ignore
     public void testMain() {
         System.out.println("main");
         String[] args = null;
@@ -55,7 +56,7 @@ public class FibonacciTest {
     /**
      * Test of fibonacci method, of class Fibonacci.
      */
-    @Test
+    @Test @Ignore
     public void testFibonacci() {
         System.out.println("fibonacci");
         Fibonacci.fibonacci();

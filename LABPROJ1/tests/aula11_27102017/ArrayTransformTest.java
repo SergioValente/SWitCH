@@ -6,6 +6,7 @@ import org.junit.Test;
 
 public class ArrayTransformTest {
 
+	//Tests to validate method transformsArray
 	@Test
 	public void testTransformsArray() {
 		
@@ -16,6 +17,30 @@ public class ArrayTransformTest {
 		
 		assertArrayEquals(expResult, result);
 		assertTrue(ArrayTransform.lastArrayPosition == 16);
+	}
+	
+	@Test
+	public void testTransformsArraySixR() {
+		
+		char[] orders = {'F','P','R','F','P','R','F','P','R','R','R','R','R','R','P','R','R','R',
+				 'F','P'};
+		char[] expResult = {'F','P','R','F','P','R','F','P','L','L','P','L','F','P','P','P','P','P','P','P'};
+		char[] result = ArrayTransform.transformsArray(orders);
+		
+		assertArrayEquals(expResult, result);
+		assertTrue(ArrayTransform.lastArrayPosition == 13);
+	}
+	
+	@Test
+	public void testTransformsArrayPenultimateElementInvalid() {
+		
+		char[] orders = {'F','P','f','F','P','h','F','P','R','R','F','F','d','P'};
+		ArrayTransform.lastArrayPosition = orders.length - 1;
+		char[] expResult = {'F','P','F','P','F','P','I','F','F','P','P','P','P','P'};
+		char[] result = ArrayTransform.transformsArray(orders);
+		
+		assertTrue(ArrayTransform.lastArrayPosition == 9);
+		assertArrayEquals(expResult, result);
 	}
 
 	//Tests to validate method arrayIsEmpty
@@ -126,15 +151,60 @@ public class ArrayTransformTest {
 		assertEquals(expResult, result);
 	}
 
-//	@Test
-//	public void testVerifyArrayErrors() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testCompareWithNextOrder() {
-//		fail("Not yet implemented");
-//	}
+	// Tests to validate method verifyArrayErrors
+	@Test
+	public void testVerifyArrayErrorsSuccess() {
+		
+		char[] orders = {'F','P','f','F','P','h','F','P','R','R','F','F','F','F'};
+		ArrayTransform.lastArrayPosition = orders.length - 1;
+		char[] expResult = {'F','P','F','P','F','P','R','R','F','F','F','F','F','F'};
+		char[] result = ArrayTransform.verifyArrayErrors(orders);
+		
+		assertArrayEquals(expResult, result);
+	}
+	
+	@Test
+	public void testVerifyArrayErrorsLastElementInvalid() {
+		
+		char[] orders = {'F','P','f','F','P','h','F','P','R','R','F','F','F','d'};
+		ArrayTransform.lastArrayPosition = orders.length - 1;
+		char[] expResult = {'F','P','F','P','F','P','R','R','F','F','F','d','d','d'};
+		char[] result = ArrayTransform.verifyArrayErrors(orders);
+		
+		assertArrayEquals(expResult, result);
+	}
+	
+	@Test
+	public void testVerifyArrayErrorsPenultimateElementInvalid() {
+		
+		char[] orders = {'F','P','f','F','P','h','F','P','R','R','F','F','d','P'};
+		ArrayTransform.lastArrayPosition = orders.length - 1;
+		char[] expResult = {'F','P','F','P','F','P','R','R','F','F','P','P','P','P'};
+		char[] result = ArrayTransform.verifyArrayErrors(orders);
+		
+		assertArrayEquals(expResult, result);
+	}
+
+	// Tests to validate method compareWithNextOrder
+	@Test
+	public void testCompareWithNextOrderSuccess() {
+
+		char[] orders = { 'F', 'P', 'F', 'P', 'R', 'F', 'P', 'R', 'R', 'F', 'F', 'F', 'f', 'P' };
+		int index = 7;
+		boolean result = ArrayTransform.compareWithNextOrder(orders, index);
+
+		assertTrue(result);
+	}
+
+	@Test
+	public void testCompareWithNextOrderFalse() {
+
+		char[] orders = { 'F', 'P', 'F', 'P', 'R', 'F', 'P', 'R', 'R', 'F', 'F', 'F', 'f', 'P' };
+		int index = 4;
+		boolean result = ArrayTransform.compareWithNextOrder(orders, index);
+
+		assertFalse(result);
+	}
 
 	// Tests to validate method invertMovement
 	@Test
@@ -149,9 +219,16 @@ public class ArrayTransformTest {
 		assertArrayEquals(expResult, result);
 	}
 
-//	@Test
-//	public void testMoveLeft() {
-//		fail("Not yet implemented");
-//	}
+	//Tests to validate method moveLeft
+	@Test
+	public void testMoveLeftSuccess() {
+		
+		char[] orders = { 'F', 'P', 'F', 'P', 'R', 'F', 'P', 'R', 'R', 'R', 'F', 'F', 'f', 'P' };
+		int index = 7;
+		ArrayTransform2.lastArrayPosition = orders.length - 1;
+		char[] expResult = { 'F', 'P', 'F', 'P', 'R', 'F', 'P', 'L', 'F', 'F', 'f', 'P', 'P', 'P'};
+		char[] result = ArrayTransform2.moveLeft(orders, index);
 
+		assertArrayEquals(expResult, result);
+	}
 }

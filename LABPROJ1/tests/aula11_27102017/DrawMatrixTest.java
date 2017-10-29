@@ -11,6 +11,7 @@ public class DrawMatrixTest {
 	@Test
 	public void testPaintMatrixCharArrayTrueResult() {
 		
+		DrawMatrix.dirOfMovement = move.LEFT_TO_RIGHT;
 		char[] orders = {'F','P','R','F','P','R','F','P','R','R','F','F','F','F','P','R','R','R',
 						 'F','P','R','F','R','F','P','F','F','P','F','F','R','F','F','P','F','P',
 						 'F','F','R','F','F','P','R','F','F','F','F','R','F','P','R','F','F','F','P'};

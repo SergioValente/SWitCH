@@ -8,6 +8,7 @@ public class ArrayTransform {
 	final static char INVERT_DIRECTION = 'I';
 	final static char MOVE_LEFT = 'L';
 	
+	//Tested
 	public static char[] transformsArray(char[] orders) {
 		
 		lastArrayPosition = orders.length - 1;
@@ -67,7 +68,7 @@ public class ArrayTransform {
 		return false;
 	}
 	
-	//TODO Test
+	//Tested
 	public static char[] verifyArrayErrors(char[] orders) {
 		
 		for (int i = 0; i < lastArrayPosition; i++) {
@@ -112,7 +113,7 @@ public class ArrayTransform {
 		return (orders[index + 1]);
 	}
 
-	// TODO needs more tests
+	//Tested
 	public static char[] invertMovement(char[] orders, int index) {
 
 		orders[index] = INVERT_DIRECTION;
@@ -120,7 +121,7 @@ public class ArrayTransform {
 		return orders;
 	}
 
-	// TODO tests
+	//Tested
 	public static char[] moveLeft(char[] orders, int index) {
 
 		orders[index] = MOVE_LEFT;

@@ -17,3 +17,6 @@ bin/
 
 # exclude until done - removed exclusion 24/10/2017
 #/SCOMRED/src/aula03_17102017
+
+# exclude .recommenders (file from infinitest)
+.recommenders
