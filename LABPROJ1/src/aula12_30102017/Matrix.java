@@ -1,6 +1,8 @@
 package aula12_30102017;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Matrix {
 
@@ -29,6 +31,11 @@ public class Matrix {
 		}
 	}
 	
+	/**
+	 * Adds this matrix to matrix b
+	 * @param b Matrix to be added
+	 * @return Matrix added
+	 */
 	public Matrix addMatrix (Matrix b) {
 		
 		Matrix matrixAdded = new Matrix (this.numLines,this.numColumns);
@@ -41,12 +48,20 @@ public class Matrix {
 		return matrixAdded;
 	}
 	
-	public Matrix multiplyMatrix(Matrix b) throws Exception{
+	/**
+	 * Multiplies this matrix with matrix b
+	 * @param b matrix to be multiplied
+	 * @return Matrix multiplied
+	 * @throws Exception When the two matrices cannot be multiplied (number of lines must be<br>
+	 * equal to the other's number of columns).
+	 */
+	public Matrix multiplyMatrix(Matrix b) throws IllegalArgumentException{
 	
 		Matrix matrixMultiplied = new Matrix (this.numLines, b.numColumns);
 		int soma = 0;
+		
 		if ((this.numLines != b.numColumns) || (this.numColumns != b.numLines))
-			throw new Exception();
+			throw new IllegalArgumentException();
 		
 		for (int i = 0; i < this.numLines; i++) {
 			for (int k = 0; k < b.numColumns; k++) {
@@ -59,6 +74,56 @@ public class Matrix {
 			
 		}
 		return matrixMultiplied;
+	}
+	
+	/**
+	 * Searches the matrix for a given number
+	 * @param num Number to search for
+	 * @return A list of <Ponto> containing the positions where its number is equal to num 
+	 */
+	public List<Ponto> getPointsWithNumber(int num) {
+		
+		List<Ponto> points = new ArrayList<>();
+		
+		for(int i = 0; i < this.numLines; i++) {
+			for(int j = 0; j < this.numColumns; j++) {
+				if (this.matrix[i][j] == num)
+					points.add(new Ponto(i,j));
+			}
+		}
+		return points;
+	}
+	
+	/**
+	 * Sets a new value for the matrix in point i
+	 * @param i Coordinates of the point to be altered
+	 * @param value Value that will substitute the one contained in the matrix
+	 * @throws Exception When i is out of bounds
+	 */
+	public void setValue(Ponto i, int value) throws Exception{
+		
+		if ((i.getX() < 0) || (i.getX() > this.numLines))
+			throw new IllegalArgumentException();
+		if ((i.getY() < 0) || (i.getY() > this.numColumns)) 
+			throw new IllegalArgumentException();
+		
+		this.matrix[i.getX()][i.getY()] = value;
+	}
+	
+	/**
+	 * Given a point (Ponto), retrieves the value contained in that point
+	 * @param i Coordinates of the point to be retrieved
+	 * @return Value retrieved
+	 * @throws Exception When the point is out of bounds
+	 */
+	public int getValue(Ponto i) throws Exception{	
+		
+		if ((i.getX() < 0) || (i.getX() > this.numLines))
+			throw new IllegalArgumentException();
+		if ((i.getY() < 0) || (i.getY() > this.numColumns))
+			throw new IllegalArgumentException();
+		
+		return this.matrix[i.getX()][i.getY()];
 	}
 
 	@Override
