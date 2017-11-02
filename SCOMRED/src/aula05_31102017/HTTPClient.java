@@ -29,8 +29,10 @@ public class HTTPClient extends Thread{
 			String[] requestComponents = requestLine.split(" ");
 			if (!requestComponents[0].equals("GET")) return;	//GET, não Get!!!!!!
 			
-			if (requestComponents[1].contentEquals("/")) 
+			if (requestComponents[1].contentEquals("/")) {
 				sendForm();
+			}
+				
 			
 			
 		}
