@@ -2,6 +2,11 @@ package aula13_02112017;
 
 import java.util.Arrays;
 
+/**
+ * Implements a class that represents an array of integers
+ * @author sergiovalente
+ *
+ */
 public class Vetor {
 
 	private int[] vector;

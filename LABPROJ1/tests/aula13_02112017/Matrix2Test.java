@@ -24,15 +24,14 @@ public class Matrix2Test {
 		assertEquals(expResult, result); //Só funciona pois fizemos um override de equals e toString!!!!!
 	}
 	
-	//Tests to validate method addMatrix
-		@Test
-		public void testAddMatrixWrongResult() {
-			
-			Matrix2 expResult = new Matrix2 (new int[][] {{7,7},{9,11}});
-			Matrix2 result = testMatrix.addMatrix(testMatrix2);
-			
-			assertNotEquals(expResult, result); //Só funciona pois fizemos um override de equals e toString!!!!!
-		}
+	@Test
+	public void testAddMatrixWrongResult() {
+
+		Matrix2 expResult = new Matrix2(new int[][] { { 7, 7 }, { 9, 11 } });
+		Matrix2 result = testMatrix.addMatrix(testMatrix2);
+
+		assertNotEquals(expResult, result); // Só funciona pois fizemos um override de equals e toString!!!!!
+	}
 
 	//Tests to validate method multiplyMatrix
 	@Test
@@ -91,7 +90,6 @@ public class Matrix2Test {
 	}
 	
 	//Tests to validate method setValue
-
 	@Test
 	public void testSetValue() throws Exception {
 
@@ -245,7 +243,7 @@ public class Matrix2Test {
 		assertFalse(result);
 	}
 	
-	// Testes to validate method matrizTransposta
+	// Tests to validate method matrizTransposta
 	@Test
 	public void testMatrizTranspostaNormal() throws Exception{
 
@@ -353,4 +351,26 @@ public class Matrix2Test {
 
 		assertFalse(result);
 	}
+	
+
+	@Test
+	public void testCloneMatrixRightResult() throws Exception {
+		
+		Matrix2 matrix = new Matrix2 (new int[][] { { 1, 2, 3 }, { 2, 4, 6 }, { 3, 6, 5 } });
+		Matrix2 expResult = new Matrix2 (new int[][] { { 1, 2, 3 }, { 2, 4, 6 }, { 3, 6, 5 } });
+		Matrix2 result = matrix.cloneMatrix();
+		
+		assertEquals(expResult, result);
+	}
+	
+	//TODO constructor
+//	@Test(expected = Exception.class)
+//	public void testCloneMatrixEmptyMatrix() throws Exception {
+//		
+//		Matrix2 matrix = new Matrix2 (new int[][] { {}, {}, {1}});
+//		Matrix2 expResult = new Matrix2 (new int[][] { {}, {},{} });
+//		Matrix2 result = matrix.cloneMatrix();
+//		
+//		assertEquals(expResult, result);
+//	}
 }

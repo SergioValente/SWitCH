@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Implements several matrix related methods. Uses OOP rather than static methods.
+ * @author sergiovalente
+ *
+ */
 public class Matrix2 {
 
 	private int[][] matrix;
@@ -20,12 +25,16 @@ public class Matrix2 {
 	
 	public Matrix2(int[][] m) {
 		
+		// not checking because of other tests.
+		//if (!isMatrixRectangular(m))
+		//	throw new IllegalArgumentException();
+		
 		matrix = new int[m.length][m[0].length];
 		numLines = m.length;
 		numColumns = m[0].length;
 		
 		for (int i = 0; i < numLines; i++) {
-			for (int j = 0; j < numColumns; j++) {
+			for (int j = 0; j < this.matrix[i].length; j++) {
 				matrix[i][j] = m[i][j];
 			}
 		}
@@ -295,6 +304,31 @@ public class Matrix2 {
 				
 				if(this.matrix[i][j] != this.matrix[this.numLines - 1 - j][this.numLines - 1 - i]) return false;
 			}
+		}	
+		return true;
+	}
+	
+	/**
+	 * Clones this matrix
+	 * @return Cloned Matrix
+	 */
+	public Matrix2 cloneMatrix() {
+		
+		Matrix2 auxMatrix = new Matrix2(this.matrix);
+		return auxMatrix;
+	}
+	
+	/**
+	 * Checks if a given matrix is rectangular
+	 * @param m Matrix to be checked
+	 * @return true if it's rectangular, false if it's not.
+	 */
+	private boolean isMatrixRectangular(int[][] m) {
+		
+		for (int i = 0; i < m.length; i++) {
+			
+			if (m[i].length != m.length)
+				return false;
 		}	
 		return true;
 	}
