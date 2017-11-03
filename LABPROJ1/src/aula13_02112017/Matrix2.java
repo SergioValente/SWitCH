@@ -10,7 +10,7 @@ public class Matrix2 {
 	private int numLines;
 	private int numColumns;
 	
-	//contrutores
+	//constructors
 	public Matrix2(int numLines, int numColumns) {
 		
 		matrix = new int[numLines][numColumns]; 
@@ -170,7 +170,12 @@ public class Matrix2 {
 		return res;
 	}
 	
-	//Métodos anteriormente estáticos, agora orientado a objetos
+	//Previously implemented methods, now transformed to conform with OOP
+	
+	/**
+	 * Adds each line of a matrix and puts the result in a Vetor object
+	 * @return Vetor object containing the sum of each line in the matrix
+	 */
 	public Vetor somaCadaLinhaMatriz() {
 		
 		if (this.numColumns == 0) {
@@ -190,19 +195,24 @@ public class Matrix2 {
 		return somatorio;	
 	}
 	
-	public boolean existsInMatrix( int[] b) {
+	/**
+	 * Checks if all elements of a Vetor object exist in the matrix
+	 * @param b Vetor object containing all the values to be tested
+	 * @return True if all the elements of Vetor b exist in the matrix, false if not.
+	 */
+	public boolean existsInMatrix(Vetor b) {
 		
 		boolean found;
 		
-		if(b.length == 0) return false;
+		if(b.getNumElements() == 0) return false;
 		
-		for (int elem: b) {
+		for (int k = 0; k < b.getNumElements(); k++) {
 			found = false;
 			
 			loopCorrerMatriz:
 			for(int i = 0; i < this.matrix.length; i++ ) {
 				for (int j = 0; j < this.matrix[i].length; j++) {
-					if (elem == this.matrix[i][j]) {
+					if (b.getVetorValue(k) == this.matrix[i][j]) {
 						found = true;
 						break loopCorrerMatriz;
 					}		
@@ -213,6 +223,11 @@ public class Matrix2 {
 		return true;
 	}
 	
+	/**
+	 * Checks the equality of two matrices
+	 * @param b Matrix2 object representing a matrix
+	 * @return True if b is equal to this object, false if it's not.
+	 */
 	public boolean isEqualMatrices(Matrix2 b) {
 		
 		if ((this.numLines != b.numLines) || (this.numColumns != b.numColumns)) return false;
@@ -225,6 +240,11 @@ public class Matrix2 {
 		return true;
 	}
 	
+	/**
+	 * Calculates the transposed matrix (out-of-place)
+	 * @return Another Matrix2 object containing the transposed matrix of this object.
+	 * @throws Exception If the matrix has zero columns
+	 */
 	public Matrix2 matrizTransposta() throws Exception{
 		
 		Matrix2 transposed = new Matrix2(this.numColumns, this.numLines);
@@ -243,6 +263,10 @@ public class Matrix2 {
 		return transposed;
 	}
 	
+	/**
+	 * Checks if this Matrix2 object is symmetric matrix relative to the main diagonal.
+	 * @return True if it's symmetric, false if it's not.
+	 */
 	public boolean isSimetricaDiagonalPrincipal() {
 		
 		if (this.numLines != this.numColumns) return false;
@@ -257,6 +281,10 @@ public class Matrix2 {
 		return true;
 	}
 	
+	/**
+	 * Checks if this Matrix2 object is symmetric matrix relative to the secondary diagonal.
+	 * @return True if it's symmetric, false if it's not.
+	 */
 	public boolean isSimetricaDiagonalSecundaria() {
 		
 		if (this.numLines != this.numColumns) return false;

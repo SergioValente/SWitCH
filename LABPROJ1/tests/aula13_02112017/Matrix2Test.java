@@ -16,13 +16,23 @@ public class Matrix2Test {
 	
 	//Tests to validate method addMatrix
 	@Test
-	public void testAddMatrix() {
+	public void testAddMatrixRightResult() {
 		
 		Matrix2 expResult = new Matrix2 (new int[][] {{5,7},{9,11}});
 		Matrix2 result = testMatrix.addMatrix(testMatrix2);
 		
 		assertEquals(expResult, result); //Só funciona pois fizemos um override de equals e toString!!!!!
 	}
+	
+	//Tests to validate method addMatrix
+		@Test
+		public void testAddMatrixWrongResult() {
+			
+			Matrix2 expResult = new Matrix2 (new int[][] {{7,7},{9,11}});
+			Matrix2 result = testMatrix.addMatrix(testMatrix2);
+			
+			assertNotEquals(expResult, result); //Só funciona pois fizemos um override de equals e toString!!!!!
+		}
 
 	//Tests to validate method multiplyMatrix
 	@Test
@@ -46,7 +56,7 @@ public class Matrix2Test {
 	}
 	
 	@Test (expected = IllegalArgumentException.class)
-	public void testMultiplyMatrixThrowExcetption() throws Exception {
+	public void testMultiplyMatrixThrowExcetptionWrongDimensions() throws Exception {
 		
 		Matrix2 a = new Matrix2 (new int[][] {{1,2,3,4},{4,5,6,6}});
 		Matrix2 b = new Matrix2(new int[][] {{7,8},{9,10},{11,12}});
@@ -149,12 +159,12 @@ public class Matrix2Test {
 		assertEquals(expResult, result);
 	}
 	
-	//Testes para verificar se todos os elementos de um vetor estão presentes numa matriz
+	//Tests to validate method existsInMatrix
 	@Test
 	public void testExistsInMatrixTrue() {
 
 		Matrix2 a = new Matrix2(new int[][] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } });
-		int[] b = { 1, 4, 8 };
+		Vetor b = new Vetor (new int[]{ 1, 4, 8 });
 		boolean result = a.existsInMatrix(b);
 
 		assertTrue(result);
@@ -164,7 +174,7 @@ public class Matrix2Test {
 	public void testExistsInMatrixFalse() {
 
 		Matrix2 a = new Matrix2(new int[][] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } });
-		int[] b = { 1, 4, 10 };
+		Vetor b = new Vetor (new int[]{ 1, 4, 10 });
 		boolean result = a.existsInMatrix(b);
 
 		assertFalse(result);
@@ -174,7 +184,7 @@ public class Matrix2Test {
 	public void testExistsInMatrixEmptyMatrix() {
 
 		Matrix2 a = new Matrix2(new int[][] { {}, {}, {} });
-		int[] b = { 1, 4, 10 };
+		Vetor b = new Vetor (new int[]{ 1, 4, 10 });
 		boolean result = a.existsInMatrix(b);
 
 		assertFalse(result);
@@ -184,13 +194,13 @@ public class Matrix2Test {
 	public void testExistsInMatrixEmptyVector() {
 
 		Matrix2 a = new Matrix2(new int[][] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } });
-		int[] b = {};
+		Vetor b = new Vetor (new int[]{});
 		boolean result = a.existsInMatrix(b);
 
 		assertFalse(result);
 	}
 	
-	// Testes para verificar igualdade de duas matrizes
+	// Tests to validate method isEqualMatrices
 	@Test
 	public void testisEqualMatricesEqual() {
 
@@ -235,7 +245,7 @@ public class Matrix2Test {
 		assertFalse(result);
 	}
 	
-	// Testes para calcular matriz transposta
+	// Testes to validate method matrizTransposta
 	@Test
 	public void testMatrizTranspostaNormal() throws Exception{
 
@@ -266,7 +276,7 @@ public class Matrix2Test {
 		assertEquals(expResult, result);
 	}
 	
-	// Testes para verificar se matriz é simétrica em relação à diagonal principal
+	// Tests to validate method isSimetricaDiagonalPrincipal
 	@Test
 	public void testIsSimetricaDiagonalPrincipalTrue() {
 
@@ -306,7 +316,7 @@ public class Matrix2Test {
 		assertFalse(result);
 	}
 	
-	// Testes para verificar se matriz é simétrica em relação à diagonal secundária
+	// Tests to validate method isSimetricaDiagonalSecundaria
 	@Test
 	public void testIsSimetricaDiagonalSecundariaTrue() {
 

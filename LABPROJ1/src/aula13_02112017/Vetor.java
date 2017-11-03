@@ -7,7 +7,7 @@ public class Vetor {
 	private int[] vector;
 	private int numElements;
 	
-	//Construtores
+	//Constructors
 	public Vetor() {
 		
 		vector = new int[1];
@@ -30,24 +30,20 @@ public class Vetor {
 		}
 	}
 
-	//Getters e Setters
-	public int[] getVetor() {
-		return vector;
+	//Getters and setters
+	public int getVetorValue(int index) {
+		return this.vector[index];
 	}
 
 	public void setVetorValue(int index, int value) {
 		this.vector[index] = value;
 	}
-
+	
 	public int getNumElements() {
 		return numElements;
 	}
 
-	public void setNumElements(int numElements) {
-		this.numElements = numElements;
-	}
-
-	//hashCode And Equals
+	//hashCode, equals and toString
 	@Override
 	public int hashCode() {
 		final int prime = 31;
