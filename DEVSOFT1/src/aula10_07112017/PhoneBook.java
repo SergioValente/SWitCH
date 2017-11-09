@@ -4,14 +4,14 @@ import java.util.*;
 
 public class PhoneBook {
 
-	private List<Contact> myPhoneBook = new ArrayList<>();
+	private List<Person> myPhoneBook = new ArrayList<>();
 
 	/**
 	 * Adds a Contact to myPhoneBook. Doesn't allow repeated phone numbers.
 	 * @param c Contact to be added
 	 * @return True if adding was successful, false otherwise.
 	 */
-	public boolean add(Contact c) {
+	public boolean add(Person c) {
 
 		if (this.existsInPhoneBook(c))
 			return false;
@@ -24,7 +24,7 @@ public class PhoneBook {
 	 * @param c Contact to be removed.
 	 * @return True if successfully removed, false if not.
 	 */
-	public boolean remove(Contact c) {
+	public boolean remove(Person c) {
 
 		if ((this.myPhoneBook.isEmpty()) || (!this.existsInPhoneBook(c)))
 			return false;
@@ -39,11 +39,11 @@ public class PhoneBook {
 	 * @param name Given parameter to search.
 	 * @return An ArrayList containing all matches.
 	 */
-	public List<Contact> search(String name) {
+	public List<Person> search(String name) {
 
-		List<Contact> namesFound = new ArrayList<>();
+		List<Person> namesFound = new ArrayList<>();
 
-		for (Contact contact : this.myPhoneBook) {
+		for (Person contact : myPhoneBook) {
 			if (contact.nameExists(name)) {
 				namesFound.add(contact);
 			}
@@ -51,15 +51,40 @@ public class PhoneBook {
 		return namesFound;
 	}
 	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((myPhoneBook == null) ? 0 : myPhoneBook.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PhoneBook other = (PhoneBook) obj;
+		if (myPhoneBook == null) {
+			if (other.myPhoneBook != null)
+				return false;
+		} else if (!myPhoneBook.equals(other.myPhoneBook))
+			return false;
+		return true;
+	}
+
 	/**
 	 * Checks if a contact exists in myPhoneBook. Uses the overridden equals method from class Contact.
 	 * @param c Contact to be checked.
 	 * @return True if contact exists in myPhoneBook, false otherwise.
 	 */
-	public boolean existsInPhoneBook(Contact c) {
+	public boolean existsInPhoneBook(Person c) {
 
 		if (myPhoneBook.isEmpty()) return false;
-		for (Contact cont : this.myPhoneBook) {
+		for (Person cont : this.myPhoneBook) {
 			if (cont.equals(c))
 				return true;
 		}
@@ -74,7 +99,7 @@ public class PhoneBook {
 	public boolean nameExistsInPhoneBook(String name) {
 
 		if (myPhoneBook.isEmpty()) return false;
-		for (Contact cont : this.myPhoneBook) {
+		for (Person cont : this.myPhoneBook) {
 			if (cont.getName().equals(name))
 				return true;
 		}
@@ -87,10 +112,26 @@ public class PhoneBook {
 
 		String res = "";
 		// System.out.println("");
-		for (Contact elem : myPhoneBook) {
+		for (Person elem : myPhoneBook) {
 			res = res + elem.getName() + "    " + elem.getPhoneNumber() + "\n";
 		}
 		return res;
 	}
 
-}
+	/**
+	 * Checks for common persons in two phonebooks.
+	 * @param b The other phonebook to compare this to.
+	 * @return A list with persons in common.
+	 */
+	public List<Person> getCommonContacts(PhoneBook b) {
+		
+		List<Person> contactsInCommon = new ArrayList<>();
+		
+		for(Person a : this.myPhoneBook) {
+			for(Person c : b.myPhoneBook) {
+				if (a.equals(c)) contactsInCommon.add(a);
+			}
+		}
+		return contactsInCommon;
+	}
+ }

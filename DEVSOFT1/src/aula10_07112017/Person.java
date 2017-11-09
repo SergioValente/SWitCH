@@ -1,14 +1,16 @@
 package aula10_07112017;
 
-public class Contact {
+public class Person {
 
 	private String name;
 	private String phoneNumber;
+	private PhoneBook phoneBook;
 	
 	//Constructor
-	public Contact (String name, String phoneNumber) {
+	public Person (String name, String phoneNumber) {
 		this.name = name;
 		this.phoneNumber = phoneNumber;
+		this.phoneBook = new PhoneBook();
 	}
 
 	//Getters and Setters
@@ -26,6 +28,10 @@ public class Contact {
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+	
+	public PhoneBook getPhoneBook() {
+		return phoneBook;
 	}
 
 	//hashCode, equals and toString
@@ -50,7 +56,7 @@ public class Contact {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Contact other = (Contact) obj;
+		Person other = (Person) obj;
 		if (phoneNumber == null) {
 			if (other.phoneNumber != null)
 				return false;
@@ -65,6 +71,8 @@ public class Contact {
 	 * @return True if name exists, false otherwise.
 	 */
 	public boolean nameExists(String name) {
+		
+		if (name == "") return false;
 		
 		name = name.toLowerCase();
 		String[] nameSplitted = name.split(" ");
