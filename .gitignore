@@ -20,3 +20,7 @@ bin/
 
 # exclude .recommenders (file from infinitest)
 .recommenders
+
+# exclude Projetos_SWitCH
+
+Projetos_SWitCH/
