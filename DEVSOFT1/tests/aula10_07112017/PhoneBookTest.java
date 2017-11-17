@@ -8,11 +8,11 @@ import org.junit.Test;
 
 public class PhoneBookTest {
 
-	Person c1 = new Person("Sergio", "963456789");
-	Person c2 = new Person("Daniel", "234945678");
-	Person c3 = new Person("Antonio", "9123456734");
-	Person c4 = new Person("Manuel Sergio", "9723456734");
-	Person c5 = new Person("Manuel Sergio Oliveira", "9733456734");
+	Colaborador c1 = new Colaborador("Sergio", "963456789");
+	Colaborador c2 = new Colaborador("Daniel", "234945678");
+	Colaborador c3 = new Colaborador("Antonio", "9123456734");
+	Colaborador c4 = new Colaborador("Manuel Sergio", "9723456734");
+	Colaborador c5 = new Colaborador("Manuel Sergio Oliveira", "9733456734");
 	PhoneBook phoneBookTest = new PhoneBook();
 	PhoneBook phoneBookTest2 = new PhoneBook();
 
@@ -68,7 +68,7 @@ public class PhoneBookTest {
 
 		String testString = "Sergio";
 
-		List<Person> expResult = new ArrayList<>();
+		List<Colaborador> expResult = new ArrayList<>();
 		expResult.add(c1);
 		expResult.add(c4);
 
@@ -76,7 +76,7 @@ public class PhoneBookTest {
 		phoneBookTest.add(c2);
 		phoneBookTest.add(c3);
 		phoneBookTest.add(c4);
-		List<Person> result = new ArrayList<>();
+		List<Colaborador> result = new ArrayList<>();
 		result = phoneBookTest.search(testString);
 
 		assertEquals(expResult, result);
@@ -87,7 +87,7 @@ public class PhoneBookTest {
 
 		String testString = "SeRgIO";
 
-		List<Person> expResult = new ArrayList<>();
+		List<Colaborador> expResult = new ArrayList<>();
 		expResult.add(c1);
 		expResult.add(c4);
 
@@ -95,7 +95,7 @@ public class PhoneBookTest {
 		phoneBookTest.add(c2);
 		phoneBookTest.add(c3);
 		phoneBookTest.add(c4);
-		List<Person> result = new ArrayList<>();
+		List<Colaborador> result = new ArrayList<>();
 		result = phoneBookTest.search(testString);
 
 		assertEquals(expResult, result);
@@ -106,7 +106,7 @@ public class PhoneBookTest {
 
 		String testString = "Manuel Oliveira";
 
-		List<Person> expResult = new ArrayList<>();
+		List<Colaborador> expResult = new ArrayList<>();
 
 		expResult.add(c5);
 		phoneBookTest.add(c1);
@@ -115,7 +115,7 @@ public class PhoneBookTest {
 		phoneBookTest.add(c4);
 		phoneBookTest.add(c5);
 
-		List<Person> result = phoneBookTest.search(testString);
+		List<Colaborador> result = phoneBookTest.search(testString);
 
 		assertEquals(expResult, result);
 	}
@@ -124,11 +124,11 @@ public class PhoneBookTest {
 	public void testSearchFailure() {
 
 		String testString = "Lisa";
-		List<Person> expResult = new ArrayList<>(); // Empty arrayList!
+		List<Colaborador> expResult = new ArrayList<>(); // Empty arrayList!
 		phoneBookTest.add(c1);
 		phoneBookTest.add(c2);
 		phoneBookTest.add(c3);
-		List<Person> result = new ArrayList<>();
+		List<Colaborador> result = new ArrayList<>();
 		result = phoneBookTest.search(testString);
 
 		assertEquals(expResult, result);
@@ -213,11 +213,11 @@ public class PhoneBookTest {
 		phoneBookTest2.add(c2);
 		phoneBookTest2.add(c5);
 
-		List<Person> expResult = new ArrayList<>();
+		List<Colaborador> expResult = new ArrayList<>();
 		expResult.add(c1);
 		expResult.add(c2);
 
-		List<Person> result = phoneBookTest.getCommonContacts(phoneBookTest2);
+		List<Colaborador> result = phoneBookTest.getCommonContacts(phoneBookTest2);
 
 		assertEquals(expResult, result);
 	}
@@ -230,9 +230,9 @@ public class PhoneBookTest {
 		phoneBookTest.add(c3);
 		phoneBookTest.add(c4);
 
-		List<Person> expResult = new ArrayList<>();
+		List<Colaborador> expResult = new ArrayList<>();
 
-		List<Person> result = phoneBookTest.getCommonContacts(phoneBookTest2);
+		List<Colaborador> result = phoneBookTest.getCommonContacts(phoneBookTest2);
 
 		assertEquals(expResult, result);
 	}

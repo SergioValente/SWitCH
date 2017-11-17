@@ -1,0 +1,2 @@
+Some exercises using shared assignments and remote git repository to 
+provoke merge conflicts. We had to sort them out. 

@@ -1,13 +1,13 @@
 package aula10_07112017;
 
-public class Person {
+public class Colaborador {
 
 	private String name;
 	private String phoneNumber;
 	private PhoneBook phoneBook;
-	
+
 	//Constructor
-	public Person (String name, String phoneNumber) {
+	public Colaborador (String name, String phoneNumber) {
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.phoneBook = new PhoneBook();
@@ -15,7 +15,7 @@ public class Person {
 
 	//Getters and Setters
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
@@ -23,15 +23,15 @@ public class Person {
 	}
 
 	public String getPhoneNumber() {
-		return phoneNumber;
+		return this.phoneNumber;
 	}
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	
+
 	public PhoneBook getPhoneBook() {
-		return phoneBook;
+		return this.phoneBook;
 	}
 
 	//hashCode, equals and toString
@@ -39,47 +39,56 @@ public class Person {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
+		result = prime * result + ((this.phoneNumber == null) ? 0 : this.phoneNumber.hashCode());
 		return result;
 	}
 
 	@Override
 	public String toString() {
-		return "Contact [name=" + name + ", phoneNumber=" + phoneNumber + "]";
+		return "Contact [name=" + this.name + ", phoneNumber=" + this.phoneNumber + "]";
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
-		Person other = (Person) obj;
-		if (phoneNumber == null) {
-			if (other.phoneNumber != null)
+		}
+		Colaborador other = (Colaborador) obj;
+		if (this.phoneNumber == null) {
+			if (other.phoneNumber != null) {
 				return false;
-		} else if (!phoneNumber.equals(other.phoneNumber))
+			}
+		} else if (!this.phoneNumber.equals(other.phoneNumber)) {
 			return false;
+		}
 		return true;
 	}
-	
+
 	/**
 	 * Checks if name exists. Works for not consecutive names too.
 	 * @param name Name to be tested.
 	 * @return True if name exists, false otherwise.
 	 */
 	public boolean nameExists(String name) {
-		
-		if (name == "") return false;
-		
+
+		if (name == "") {
+			return false;
+		}
+
 		name = name.toLowerCase();
 		String[] nameSplitted = name.split(" ");
-		
+
 		for(String eachName : nameSplitted) {
-			if(!this.name.toLowerCase().contains(eachName)) return false;
+			if(!this.name.toLowerCase().contains(eachName)) {
+				return false;
+			}
 		}
-		return true;	
+		return true;
 	}
 }

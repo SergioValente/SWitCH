@@ -1,0 +1,30 @@
+Enunciado:
+
+Tema: Gestão de Projetos
+
+Semana: 13 de Novembro a 19 de Novembro
+
+User Stories:
+
+US101 - Como utilizador da aplicação de gestão de projetos, eu pretendo registar-me como colaborador 
+		de forma a poder usufruir das suas várias funcionalidades. (feito)
+
+US201 - Como colaborador, eu pretendo retificar os meus dados pessoais (e.g. nome, email) para os manter 
+		sempre atualizados.
+
+US202 - Como colaborador, eu pretendo associar um novo endereço postal ao meu perfil. (feito)
+
+US203 - Como colaborador, eu pretendo consultar a minha lista de tarefas pendentes de modo a saber o que 
+		tenho para fazer hoje. (feito)
+
+US204 - Como colaborador, eu pretendo adicionar uma tarefa à minha lista de tarefas. (feito)
+
+US205 - Como colaborador, eu pretendo marcar uma tarefa que consta na minha lista de tarefas como concluida. (feito)
+
+US206 - Como colaborador, eu pretendo remover uma tarefa que consta na minha lista de tarefas. (feito)
+
+
+
+Dúvidas:
+
+	- Onde fazer os métodos do endereco e das tarefas??????

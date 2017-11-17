@@ -4,14 +4,14 @@ import java.util.*;
 
 public class PhoneBook {
 
-	private List<Person> myPhoneBook = new ArrayList<>();
+	private List<Colaborador> myPhoneBook = new ArrayList<>();
 
 	/**
 	 * Adds a Contact to myPhoneBook. Doesn't allow repeated phone numbers.
 	 * @param c Contact to be added
 	 * @return True if adding was successful, false otherwise.
 	 */
-	public boolean add(Person c) {
+	public boolean add(Colaborador c) {
 
 		if (this.existsInPhoneBook(c))
 			return false;
@@ -24,7 +24,7 @@ public class PhoneBook {
 	 * @param c Contact to be removed.
 	 * @return True if successfully removed, false if not.
 	 */
-	public boolean remove(Person c) {
+	public boolean remove(Colaborador c) {
 
 		if ((this.myPhoneBook.isEmpty()) || (!this.existsInPhoneBook(c)))
 			return false;
@@ -39,11 +39,11 @@ public class PhoneBook {
 	 * @param name Given parameter to search.
 	 * @return An ArrayList containing all matches.
 	 */
-	public List<Person> search(String name) {
+	public List<Colaborador> search(String name) {
 
-		List<Person> namesFound = new ArrayList<>();
+		List<Colaborador> namesFound = new ArrayList<>();
 
-		for (Person contact : myPhoneBook) {
+		for (Colaborador contact : myPhoneBook) {
 			if (contact.nameExists(name)) {
 				namesFound.add(contact);
 			}
@@ -81,10 +81,10 @@ public class PhoneBook {
 	 * @param c Contact to be checked.
 	 * @return True if contact exists in myPhoneBook, false otherwise.
 	 */
-	public boolean existsInPhoneBook(Person c) {
+	public boolean existsInPhoneBook(Colaborador c) {
 
 		if (myPhoneBook.isEmpty()) return false;
-		for (Person cont : this.myPhoneBook) {
+		for (Colaborador cont : this.myPhoneBook) {
 			if (cont.equals(c))
 				return true;
 		}
@@ -99,7 +99,7 @@ public class PhoneBook {
 	public boolean nameExistsInPhoneBook(String name) {
 
 		if (myPhoneBook.isEmpty()) return false;
-		for (Person cont : this.myPhoneBook) {
+		for (Colaborador cont : this.myPhoneBook) {
 			if (cont.getName().equals(name))
 				return true;
 		}
@@ -112,7 +112,7 @@ public class PhoneBook {
 
 		String res = "";
 		// System.out.println("");
-		for (Person elem : myPhoneBook) {
+		for (Colaborador elem : myPhoneBook) {
 			res = res + elem.getName() + "    " + elem.getPhoneNumber() + "\n";
 		}
 		return res;
@@ -123,12 +123,12 @@ public class PhoneBook {
 	 * @param b The other phonebook to compare this to.
 	 * @return A list with persons in common.
 	 */
-	public List<Person> getCommonContacts(PhoneBook b) {
+	public List<Colaborador> getCommonContacts(PhoneBook b) {
 		
-		List<Person> contactsInCommon = new ArrayList<>();
+		List<Colaborador> contactsInCommon = new ArrayList<>();
 		
-		for(Person a : this.myPhoneBook) {
-			for(Person c : b.myPhoneBook) {
+		for(Colaborador a : this.myPhoneBook) {
+			for(Colaborador c : b.myPhoneBook) {
 				if (a.equals(c)) contactsInCommon.add(a);
 			}
 		}
